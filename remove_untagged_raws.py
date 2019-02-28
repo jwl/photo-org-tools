@@ -17,7 +17,10 @@ def query_yes_no(question: str, default: str ="no") -> bool:
     Ask a yes/no question via input() and return their answer.
 
     "question" is a string that is presented to the user.
-    "default" is the presumed answer if the user just hits <Enter>.
+    "default" is the presumed answer if the user just hits <Enter>. It must be
+    "yes", "no" (the default) or None; if None, an answer will be required of
+    the user.
+    Taken from https://stackoverflow.com/questions/3041986/apt-command-line-interface-like-yes-no-input
 
     Args:
         question: Question to ask the user as a string.
@@ -30,7 +33,7 @@ def query_yes_no(question: str, default: str ="no") -> bool:
     valid = {"yes": True, "y": True, "ye": True,
             "no": False, "n": False}
     if default is None:
-        prompt = " [y/N] "
+        prompt = " [y/n] "
     elif default == "yes":
         prompt = " [Y/n] "
     elif default == "no":
