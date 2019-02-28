@@ -21,6 +21,13 @@ rawFiles = [
 
 deletedFiles = []
 
+# Delete un-tagged jpg files
+for f in listdir(filepath):
+    if ".JPG" in f and f not in set(jpgFiles):
+        deletedFiles.append(f)
+        remove(filepath + "/" + f)
+
+# Delete un-tagged RAW/ORF files
 for f in listdir(filepath + "/raw"):
     if f not in set(rawFiles):
         deletedFiles.append(f)
